@@ -1,0 +1,40 @@
+<div>
+    <h4>Entreprises</h4>
+</div>
+<div class="card mt-5">
+    <div class="card-header d-flex justify-content-end">
+        <button pButton class="p-button-outlined p-button-rounded p-button-success p-button-sm" (click)="addCompany()"
+            icon="pi pi-plus-circle"></button>
+    </div>
+    <div class="card-body">
+        <p-table [value]="companiesList" [rows]="rows" responsiveLayout="scroll" [paginator]="true"
+            urrentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+            [rowsPerPageOptions]="[10,25,50]">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>#</th>
+                    <th>Nom</th>
+                    <th>E-mail</th>
+                    <th>Téléphone</th>
+                    <th>Localisation</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-comapny>
+                <tr>
+                    <td>#{{comapny.id}}</td>
+                    <td>{{comapny.name}}</td>
+                    <td><a href="mailto:{{comapny.email}}">{{comapny.email}}</a></td>
+                    <td><a href="tel:{{comapny.phone}}">{{comapny.phone}}</a></td>
+                    <td>{{comapny.location}}</td>
+                    <td><button pButton class="p-button-rounded p-button-sm p-button-secondary me-2"
+                            (click)="details(comapny.id)" icon="pi pi-eye"></button>
+                        <button pButton class="p-button-danger p-button-sm p-button-rounded"
+                            icon="pi pi-trash"></button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+<p-toast></p-toast>
