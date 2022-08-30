@@ -1,0 +1,50 @@
+<div class="container">
+    <form [formGroup]="addCompanyForm" (ngSubmit)="addCompany()" autocomplete="off">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="name">Nom<span class="text-danger">*</span></label>
+                    <input type="text" formControlName="name" id="name" class="form-control"
+                        placeholder="Nom de l'entreprise">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="email">E-mail<span class="text-danger">*</span></label>
+                    <input type="email" formControlName="email" id="email" class="form-control"
+                        placeholder="Adresse électronique">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="phone">Téléphone<span class="text-danger">*</span></label>
+                    <input type="tel" formControlName="phone" id="phone" class="form-control" placeholder="Contact">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="rccm">RCCM</label>
+                    <input type="text" formControlName="rccm" id="rccm" class="form-control"
+                        placeholder="Numéro d'identifiant unique de l'entreprise">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="location">Localisation</label>
+                    <input type="text" formControlName="location" id="location" class="form-control"
+                        placeholder="Situation géographique">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="logo">Logo</label>
+                    <input type="url" formControlName="logo" id="logo" class="form-control" placeholder="logo">
+                </div>
+            </div>
+            <div class="col-12 text-center">
+                <button type="submit" [disabled]="!addCompanyForm.valid"
+                    class="btn btn-success text-white">Enregistrer</button>
+            </div>
+        </div>
+    </form>
+</div>
