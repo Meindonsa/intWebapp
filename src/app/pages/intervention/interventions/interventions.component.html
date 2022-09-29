@@ -1,1 +1,64 @@
-<p>interventions works!</p>
+<div>
+  <h4>Intervention</h4>
+</div>
+<div class="card mt-5">
+  <div class="card-header d-flex justify-content-end">
+    <button
+      pButton
+      class="p-button-outlined p-button-rounded p-button-success p-button-sm"
+      (click)="addIntervention()"
+      icon="pi pi-plus-circle"
+    ></button>
+  </div>
+  <div class="card-body">
+    <p-table
+      [value]="interventionList"
+      [rows]="rows"
+      responsiveLayout="scroll"
+      [paginator]="true"
+      urrentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+      [rowsPerPageOptions]="[10, 25, 50]"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>#</th>
+          <th>Titre</th>
+          <th>Description</th>
+          <th>Date & Heure</th>
+          <th>Client</th>
+          <th>Statut</th>
+          <th>&nbsp;</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-intervention>
+        <tr>
+          <td>#{{ intervention.id }}</td>
+          <td>{{ intervention.title }}</td>
+          <td>
+            <span>{{ intervention.description }}</span>
+          </td>
+          <td>
+            <span>{{ intervention.date + " " + intervention.houre }} </span>
+          </td>
+          <td>{{ intervention.client.name }}</td>
+          <td>{{ intervention.status }}</td>
+          <td>
+            <button
+              pButton
+              class="p-button-outlined p-button-rounded p-button-sm me-2"
+              (click)="details(intervention)"
+              icon="pi pi-eye"
+            ></button>
+            <button
+              pButton
+              class="p-button-outlined p-button-rounded p-button-sm text-warning"
+              icon="pi pi-pencil"
+              (click)="edit(intervention)"
+            ></button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
+<p-toast></p-toast>
