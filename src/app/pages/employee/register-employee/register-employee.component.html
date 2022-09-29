@@ -1,0 +1,79 @@
+<div class="container">
+  <form
+    [formGroup]="addEmployeeForm"
+    (ngSubmit)="addEployee()"
+    autocomplete="off"
+  >
+    <div class="row">
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="lastName">Nom<span class="text-danger">*</span></label>
+          <input
+            type="text"
+            formControlName="lastName"
+            id="lastName"
+            class="form-control"
+            placeholder="Nom de l'employé"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="firstName">Nom<span class="text-danger">*</span></label>
+          <input
+            type="text"
+            formControlName="firstName"
+            id="firstName"
+            class="form-control"
+            placeholder="Prénom de l'employé"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="email">E-mail<span class="text-danger">*</span></label>
+          <input
+            type="email"
+            formControlName="email"
+            id="email"
+            class="form-control"
+            placeholder="Adresse électronique"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="phone">Téléphone<span class="text-danger">*</span></label>
+          <input
+            type="tel"
+            formControlName="phone"
+            id="phone"
+            class="form-control"
+            placeholder="Contact"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="address">Adresse</label>
+          <input
+            type="text"
+            formControlName="address"
+            id="address"
+            class="form-control"
+            placeholder="Adresse"
+          />
+        </div>
+      </div>
+      <div class="col-12 text-center">
+        <button
+          type="submit"
+          [disabled]="!addEmployeeForm.valid"
+          class="btn btn-success text-white"
+        >
+          Enregistrer
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

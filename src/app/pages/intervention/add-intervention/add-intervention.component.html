@@ -1,0 +1,88 @@
+<div class="container px-5">
+  <form
+    [formGroup]="addInterventionForm"
+    (ngSubmit)="addIntervention()"
+    autocomplete="off"
+  >
+    <div class="row">
+      <div class="col-12">
+        <div class="mb-3">
+          <label for="title">Titre<span class="text-danger">*</span></label>
+          <input
+            type="text"
+            formControlName="title"
+            id="title"
+            class="form-control"
+            placeholder="Nom de l'employé"
+          />
+        </div>
+      </div>
+      <div class="col-md-12 mb-3">
+        <label for="description"
+          >Description<span class="text-danger">*</span></label
+        >
+        <textarea
+          id="description"
+          formControlName="description"
+          class="form-control"
+          placeholder="description"
+          style="min-height: 80px"
+        ></textarea>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="date">Date<span class="text-danger">*</span></label>
+          <input
+            type="date"
+            formControlName="date"
+            id="date"
+            class="form-control"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="houre">Heure<span class="text-danger">*</span></label>
+          <input
+            type="time"
+            formControlName="houre"
+            id="houre"
+            class="form-control"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="client">Client<span class="text-danger">*</span></label>
+          <select class="form-select" formControlName="client">
+            <option selected value="" disabled></option>
+            <option *ngFor="let client of clientList" value="{{ client.id }}">
+              {{ client.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="agents">Agent</label>
+          <select class="form-select" formControlName="agents">
+            <option selected value="" disabled></option>
+            <option *ngFor="let agent of agentList" value="{{ agent.id }}">
+              {{ agent.lastName }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-12 text-end mt-3">
+        <button
+          type="submit"
+          [disabled]="!addInterventionForm.valid"
+          class="btn btn-success text-white"
+        >
+          Enregistrer
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+<p-confirmPopup></p-confirmPopup>
